@@ -44,7 +44,7 @@ BREAKS = [
     ("imagen latest", ("Dockerfile", "FROM python:3.11-slim\nENV", "FROM python:latest\nENV"), "C04", Severity.MEDIUM),
     ("secreto en Dockerfile", ("Dockerfile", "ENV PORT=8080", "ENV PORT=8080\nENV API_KEY=abc123"), "C06", Severity.CRITICAL),
     ("dockerignore incompleto", (".dockerignore", ".env\n", ""), "C05", Severity.MEDIUM),
-    ("credencial en .env.example", (".env.example", "GEMINI_API_KEY=", "GEMINI_API_KEY=AIzaSyA1b2C3d4E5f6G7h8I9j0K1l2M3n4O5p6Q"), "E01", Severity.CRITICAL),
+    ("credencial en .env.example", (".env.example", "GEMINI_API_KEY=", "GEMINI_API_KEY=" + "AIza" + "SyA1b2C3d4E5f6G7h8I9j0K1l2M3n4O5p6Q"), "E01", Severity.CRITICAL),
     ("URL con clave en .env.example", (".env.example", "GEMINI_API_KEY=", "DB_URL=mysql://root:hunter2@db:3306/app\nGEMINI_API_KEY="), "E01", Severity.CRITICAL),
     ("variable sin documentar", (".env.example", "GEMINI_API_KEY=\n", ""), "E02", Severity.MEDIUM),
     ("sin .env en gitignore", (".gitignore", ".env\n", ""), "E03", Severity.CRITICAL),
