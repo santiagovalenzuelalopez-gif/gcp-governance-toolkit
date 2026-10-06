@@ -1,0 +1,12 @@
+# .govkit.yml — configuración opcional del verificador (en la raíz del repositorio)
+
+# Paquete de la aplicación. Si se omite se detecta: api/, app/ o src/ (el primero que tenga main.py).
+package: app
+
+# Excepciones JUSTIFICADAS. Una excepción sin 'reason' no se aplica y es un incumplimiento crítico (G01).
+# Aparecen en el reporte (sección "Excepciones justificadas"): no se esconden, se explican.
+waivers:
+  - rule: A04
+    reason: Webhook interno de Eventarc; no es una API de negocio versionada de cara a clientes
+  - rule: D04
+    reason: Arranque en frío inaceptable para este servicio (SLA de 1 s); costo aprobado por el responsable
